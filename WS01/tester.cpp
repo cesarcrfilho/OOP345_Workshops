@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     int result = 0; // controls the execution success/failure
     
     // if no arguments, failure
-    if(argc <= 0 || argc == NULL) {
+    if(argc <= 1) {
         cout << "Insufficient number of arguments (min 1)" << endl;
         result = 1;
     } else {
