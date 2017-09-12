@@ -12,10 +12,7 @@ Description : Workshop 01 - process.h
 
 namespace w1 {
 
-    class process {
-    private:
-    public:
-    };
+    void process(const char* name);
 
 }
 #endif // !SICT_PROCESS_H__

@@ -7,10 +7,15 @@ Class       : OOP345 - Object Oriented Software Development Using C++
 Description : Workshop 01 - process.cpp
 ---------------------------------------------------------------*/
 
+#include <iostream>
 #include "process.h"
+#include "CString.h"
 
 namespace w1 {
 
-
-
+    // function process
+    void process(const char* name) {
+        CString processed(name);
+        std::cout << processed << std::endl;
+    }
 }
