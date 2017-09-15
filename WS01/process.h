@@ -12,7 +12,7 @@ Description : Workshop 01 - process.h
 
 namespace w1 {
 
-    void process(const char* name);
+    void process(const char* name, const int capacity);
 
 }
 #endif // !SICT_PROCESS_H__

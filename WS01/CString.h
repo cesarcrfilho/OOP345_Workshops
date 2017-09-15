@@ -14,6 +14,10 @@ Description : Workshop 01 - CString.h
 
 namespace w1 {
 
+    /////////////////////////////////////////////////////////////////
+    //                   Class CString Declaration                 //
+    /////////////////////////////////////////////////////////////////
+    
     class CString {
     private:
         const int M_CAPACITY; // holds the c-string max capacity
@@ -21,22 +25,21 @@ namespace w1 {
     public:
         // constructors
         CString();
-        CString(const char* name);
+        CString(const char* name, const int capacity);
         // destructor
         ~CString();
-
-        // getters
-        char* getName() const;
 
         // queries
         std::ostream& display(std::ostream& ost = std::cout) const;
     };
 
-    // non-member functions
-    // operator << overloading
-    // CString << ostream
-    std::ostream& operator<<(std::ostream& ost, const CString& rhs);
+    /////////////////////////////////////////////////////////////////
+    //                        Helper Functions                     //
+    /////////////////////////////////////////////////////////////////
 
+    // operator<< overloading
+    // e.g. ostream << CString
+    std::ostream& operator<<(std::ostream& ost, const CString& rhs);
 
 }
 

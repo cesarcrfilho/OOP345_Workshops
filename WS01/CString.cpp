@@ -14,6 +14,13 @@ Description : Workshop 01 - CString.cpp
 
 namespace w1 {
 
+    // global variable holding the CString max characters
+    extern int stringMaxCapacity;
+
+    /////////////////////////////////////////////////////////////////
+    //                Class CString Member Definition              //
+    /////////////////////////////////////////////////////////////////
+
     // default constructor - safe state
     CString::CString()
         : M_CAPACITY{ 0 } {
@@ -21,8 +28,8 @@ namespace w1 {
     }
 
     // constructor receives c-string and initializes capacity
-    CString::CString(const char* name)
-        : M_CAPACITY{ 3 } {
+    CString::CString(const char* name, const int capacity)
+        : M_CAPACITY{ capacity } {
         m_name = new char[M_CAPACITY + 1];
         strncpy(m_name, name, M_CAPACITY + 1);
         m_name[M_CAPACITY] = char(0);
@@ -33,24 +40,25 @@ namespace w1 {
         delete[] m_name;
     }
 
-    // getters
-    // getName()
-    char* CString::getName() const { return m_name; }
-
     // queries
+
     //display()
     std::ostream& CString::display(std::ostream& ost) const {
         ost << m_name;
         return ost;
     }
 
+    /////////////////////////////////////////////////////////////////
+    //                        Helper Functions                     //
+    /////////////////////////////////////////////////////////////////
+
     // operation overloading
-    // ostream& << CString&
+    // e.g. ostream << CString
     std::ostream& operator<<(std::ostream& ost, const CString& rhs) {
         // variable to count the executions
         static int counter = 0;
         ost << counter << ": ";
-        ost << rhs.getName();
+        rhs.display(ost);
         counter++;
         return ost;
     }
