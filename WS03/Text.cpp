@@ -11,10 +11,6 @@ Description : Workshop 03 - Text.cpp
 #include <fstream>
 #include "Text.h"
 
-// DELETE THIS
-#include <iostream>
-//DELETE THIIIIISSSSS
-
 namespace w3 {
     
     /////////////////////////////////////////////////////////////////
