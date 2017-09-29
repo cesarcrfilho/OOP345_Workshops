@@ -2,13 +2,14 @@
 Student     : Cesar Rodrigues
 Student ID  : 127381168
 Email       : cda-conceicao-rodrig@myseneca.ca
-Date        : Sep 26 2017
+Date        : Sep 29 2017
 Class       : OOP345 - Object Oriented Software Development Using C++
 Description : Workshop 03 - Text.h
 ---------------------------------------------------------------*/
 
 #ifndef SICT_TEXT_H__
 #define SICT_TEXT_H__
+#define _NOEXCEPT noexcept // safeguard
 
 #include <string>
 
@@ -32,9 +33,9 @@ namespace w3 {
 		Text(const std::string& fileName);
 
 		Text(const Text& rhs); // copy constructor
-		Text(Text&& rhs); // move constructor
+		Text(Text&& rhs) _NOEXCEPT; // move constructor
 		Text& operator=(const Text& rhs); // copy assignment
-		Text& operator=(Text&& rhs); // move assignment
+		Text& operator=(Text&& rhs) _NOEXCEPT; // move assignment
 
 		// destructor
 		virtual ~Text();
