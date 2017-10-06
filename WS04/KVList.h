@@ -28,10 +28,7 @@ private:
 
 public:
     // default constructor
-    KVList() : m_size(0) {
-        m_keys[0] = '0';
-        m_values[0] = '0';    
-    }
+    KVList() : m_size(0) { }
 
     // size
     // returns the number of entries in the key-value list
@@ -92,8 +89,6 @@ public:
         }
         return *this;
     }
-
-
 };
 
 #endif // !SICT_KVLIST_H__
