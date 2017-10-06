@@ -18,7 +18,7 @@ class KVList {
 private:
     K m_keys[N];
     V m_values[N];
-    size_t m_size;
+    int m_size;
 
     // isWithinBoundaries
     // checks if an integer i is within the array boundaries
@@ -36,19 +36,11 @@ public:
 
     // key
     // returns an unmodifiable reference to the key of element i in the list
-    const K& key(int i) const {
-        // check parameter
-        if (isWithinBoundaries(i))
-            return m_keys[i];
-    }
+    const K& key(int i) const { return m_keys[i]; }
 
     // value
     // returns an unmodifiable reference to the value of element i in the list
-    const V& value(int i) const {
-        // check parameter
-        if (isWithinBoundaries(i))
-            return m_values[i];
-    }
+    const V& value(int i) const { return m_values[i]; }
 
     // add
     // adds a new element to the list if room exists and returns a reference
@@ -70,7 +62,7 @@ public:
         int result = 0;
 
         // loop through the array and check the keys
-        for (unsigned i = 0; i < m_size; i++) {
+        for (int i = 0; i < m_size; i++) {
             if (m_keys[i] == k) {
                 result = i;
                 break; // *since the specification asks for the FIRST element
