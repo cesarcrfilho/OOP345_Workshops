@@ -10,6 +10,7 @@ Description : Workshop 05 - Notifications.h
 #ifndef W5_NOTIFICATIONS_H__
 #define W5_NOTIFICATIONS_H__
 #include <ostream>
+#include <vector>
 #include "Message.h"
 
 namespace w5 {
@@ -19,7 +20,8 @@ namespace w5 {
     /////////////////////////////////////////////////////////////////
     class Notifications {
     private:
-        Message* m_messages[10];
+        std::vector<Message> m_messages;
+        const size_t M_MAXSIZE = 10; // maximum vector size
     public:
         // default constructor
         Notifications();
@@ -37,7 +39,7 @@ namespace w5 {
 
         // display
         // inserts the Message objects to the os output stream
-        void display(std::ostream& os) const;
+        void display(std::ostream& ost) const;
     };
 }
 

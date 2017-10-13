@@ -7,18 +7,15 @@ Class       : OOP345 - Object Oriented Software Development Using C++
 Description : Workshop 05 - Message.cpp
 ---------------------------------------------------------------*/
 
-#include <string>
 #include "Message.h"
 
 namespace w5 {
 
     // default constructor
-    Message::Message() {
-        // safe empty state
-        m_message.clear();
-    }
+    //*string class constructor already puts the string in safe empty state*
+    Message::Message() {}
 
-    // constructor retrieves a record from the in file object, parses the record
+    // constructor retrieves a record from the "in" file object, parses the record
     // and stores its components in the Message object.
     // c is the character that delimits each record
     Message::Message(std::ifstream& in, char c) {
@@ -67,7 +64,7 @@ namespace w5 {
         if (!buffer.empty()) {
             // to get the user
             // find the first blank space to get the user
-            // fill found variable with ending position of user
+            // fill "found" variable with ending position of user
             user = buffer.substr(0, found = buffer.find(blank));
             // erase the user from the buffer
             buffer.erase(0, found + 1);
@@ -77,10 +74,10 @@ namespace w5 {
             if (buffer.find(at) != std::string::npos) {
                 // to get the reply name
                 // find the first @ and get the string until the following blank space
-                replyName = buffer.substr(buffer.find(at), found = buffer.find(blank));
+                replyName = buffer.substr(buffer.find(at) + 1, found = buffer.find(blank) - 1);
 
                 // remove the reply name from the buffer
-                buffer.erase(0, found + 1);
+                buffer.erase(0, found + 2);
             }
 
             if (found != std::string::npos) {
@@ -93,10 +90,10 @@ namespace w5 {
             // must contain at least user and message/tweet
             if (!user.empty() && !tweet.empty()) {
                 // concatenate all data
-                m_message = "User : " + user + c;
+                m_message = " User  : " + user + c;
                 if (!replyName.empty())
-                    m_message += "Reply : " + replyName + c;
-                m_message += "Message : " + tweet;
+                    m_message += " Reply : " + replyName + c;
+                m_message += " Tweet : " + tweet + c;
 
             }
         }
