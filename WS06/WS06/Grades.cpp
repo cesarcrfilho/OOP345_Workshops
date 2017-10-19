@@ -56,8 +56,8 @@ Grades::Grades(const char* fileName) {
 
 // destructor
 Grades::~Grades() {
-	// deallocates memory
-	delete[] m_student;
+    // deallocates memory
+    delete[] m_student;
 }
 
 // size

@@ -14,15 +14,15 @@ Description : Workshop 06 - Grades.h
 
 // structure that holds student info
 struct Student {
-	unsigned int studentId;
-	double grade;
+    unsigned int studentId;
+    double grade;
 };
 
 class Grades {
 private:
-	Student* m_student = nullptr; // default values
+    Student* m_student = nullptr; // default values
     size_t m_size = 0;
-
+    
     // size
     // returns the array size
     size_t size() const;
@@ -31,26 +31,25 @@ private:
     // prohibits default instantiation ~ no sense since we're working with files
     Grades();
 public:
+    // char* constructor
+    // receives a C-style string with the name of
+    // the file holding the grade information for
+    // all students in a course
+    Grades(const char* fileName);
 
-	// char* constructor
-	// receives a C-style string with the name of
-	// the file holding the grade information for
-	// all students in a course
-	Grades(const char* fileName);
+    // prohibits copying, moving or assigning of a Grades object
+    Grades(const Grades& src) = delete; // copy constructor
+    Grades(Grades&& src) = delete; // move constructor
+    Grades& operator=(const Grades& rhs) = delete; // copy assignment
+    Grades& operator=(Grades&& rhs) = delete; // move assignment
 
-	// prohibits copying, moving or assigning of a Grades object
-	Grades(const Grades& src) = delete; // copy constructor
-	Grades(Grades&& src) = delete; // move constructor
-	Grades& operator=(const Grades& rhs) = delete; // copy assignment
-	Grades& operator=(Grades&& rhs) = delete; // move assignment
+    // displayGrades
+    // receives a reference to the output stream object and
+    // the expression to be used in determining the letter grade
+    void displayGrades(std::ostream& ost, std::string(*functionPointer)(double)) const;
 
-	// displayGrades
-	// receives a reference to the output stream object and
-	// the expression to be used in determining the letter grade
-	void displayGrades(std::ostream& ost, std::string(*functionPointer)(double)) const;
-
-	// destructor
-	virtual ~Grades();
+    // destructor
+    virtual ~Grades();
 };
 
 #endif // !GRADES_H__
